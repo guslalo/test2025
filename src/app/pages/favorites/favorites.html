@@ -1,0 +1,31 @@
+<div class="favorites-container">
+  <h1>Mis Favoritos</h1>
+
+  <div *ngIf="favorites.length === 0" class="no-favorites">
+    <mat-icon>favorite_border</mat-icon>
+    <p>No tienes favoritos aún</p>
+    <button mat-raised-button color="primary" routerLink="/">
+      Explorar títulos
+    </button>
+  </div>
+
+  <div class="favorites-grid" *ngIf="favorites.length > 0">
+    <mat-card *ngFor="let title of favorites" class="favorite-card">
+      <img mat-card-image [src]="title.imageUrl || 'assets/no-image.svg'" [alt]="title.title" (error)="$any($event.target).src='assets/no-image.svg'">
+
+      <mat-card-header>
+        <mat-card-title>{{ title.title }}</mat-card-title>
+        <mat-card-subtitle>{{ title.year }} • {{ title.type }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-actions align="end">
+        <button mat-icon-button color="warn" (click)="removeFavorite(title)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-button (click)="viewDetails(title)">
+          Ver Detalles
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

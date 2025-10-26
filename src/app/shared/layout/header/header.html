@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="toggleSidebar()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="app-title" routerLink="/">Test App</span>
+  <span class="spacer"></span>
+  <button mat-stroked-button class="reset-button" (click)="resetData()">
+    <mat-icon>restart_alt</mat-icon>
+    <span class="reset-text">Reiniciar Data</span>
+  </button>
+  <button mat-icon-button>
+    <mat-icon>notifications</mat-icon>
+  </button>
+  <button mat-icon-button>
+    <mat-icon>account_circle</mat-icon>
+  </button>
+</mat-toolbar>

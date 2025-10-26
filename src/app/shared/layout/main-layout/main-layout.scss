@@ -1,0 +1,43 @@
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidenav-container {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.sidenav {
+  width: 200px;
+  border-right: 1px solid var(--mat-sys-outline-variant);
+
+  @media (max-width: 1024px) {
+    width: 250px;
+  }
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  @media (max-width: 1024px) {
+    margin-left: 0 !important;
+  }
+}
+
+.content-wrapper {
+  flex: 1;
+  padding: 12px 16px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}

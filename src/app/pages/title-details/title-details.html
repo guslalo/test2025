@@ -1,0 +1,56 @@
+<div class="details-container" *ngIf="title">
+  <button mat-icon-button routerLink="/" class="back-button">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+
+  <mat-card class="details-card">
+    <div class="card-content">
+      <img [src]="title.imageUrl || 'assets/no-image.svg'" [alt]="title.title" class="title-image" (error)="$any($event.target).src='assets/no-image.svg'">
+
+      <div class="title-info">
+        <h1>{{ title.title }}</h1>
+
+        <div class="meta-info">
+          <mat-chip-set>
+            <mat-chip *ngIf="title.year">{{ title.year }}</mat-chip>
+            <mat-chip *ngIf="title.type">{{ title.type }}</mat-chip>
+          </mat-chip-set>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div class="notes-section">
+          <div class="section-header">
+            <h3>Notas Personales</h3>
+            <button mat-icon-button *ngIf="!editingNotes" (click)="startEditingNotes()">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+
+          <div *ngIf="!editingNotes">
+            <p *ngIf="title.userNotes" class="notes-text">{{ title.userNotes }}</p>
+            <p *ngIf="!title.userNotes" class="no-notes">No hay notas</p>
+          </div>
+
+          <div *ngIf="editingNotes">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Notas</mat-label>
+              <textarea matInput [(ngModel)]="tempNotes" rows="4"></textarea>
+            </mat-form-field>
+            <div class="notes-actions">
+              <button mat-button (click)="cancelEdit()">Cancelar</button>
+              <button mat-raised-button color="primary" (click)="saveNotes()">Guardar</button>
+            </div>
+          </div>
+        </div>
+
+        <mat-card-actions>
+          <button mat-raised-button [color]="isFavorite() ? 'warn' : 'primary'" (click)="toggleFavorite()">
+            <mat-icon>{{ isFavorite() ? 'favorite' : 'favorite_border' }}</mat-icon>
+            {{ isFavorite() ? 'Quitar de favoritos' : 'Agregar a favoritos' }}
+          </button>
+        </mat-card-actions>
+      </div>
+    </div>
+  </mat-card>
+</div>

@@ -1,0 +1,45 @@
+<div class="home-container">
+  <div class="search-section">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Buscar películas y series</mat-label>
+      <input matInput [(ngModel)]="searchQuery" (keyup.enter)="onSearch()" placeholder="Ej: Inception">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="onSearch()" [disabled]="loading">
+      Buscar
+    </button>
+  </div>
+
+  <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+
+  <div class="titles-grid" *ngIf="!loading">
+    <mat-card *ngFor="let title of filteredTitles" class="title-card">
+      <img mat-card-image [src]="title.imageUrl || 'assets/no-image.svg'" [alt]="title.title" (error)="$any($event.target).src='assets/no-image.svg'">
+
+      <mat-card-header>
+        <mat-card-title>{{ title.title }}</mat-card-title>
+        <mat-card-subtitle>
+          {{ title.year || 'N/A' }} • {{ title.type || 'movie' }}
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p *ngIf="title.userNotes" class="user-notes">{{ title.userNotes }}</p>
+      </mat-card-content>
+
+      <mat-card-actions align="end">
+        <button mat-icon-button (click)="toggleFavorite(title)" [color]="isFavorite(title.id) ? 'warn' : ''">
+          <mat-icon>{{ isFavorite(title.id) ? 'favorite' : 'favorite_border' }}</mat-icon>
+        </button>
+        <button mat-button (click)="viewDetails(title)">
+          Ver Detalles
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div *ngIf="!loading && filteredTitles.length === 0" class="no-results">
+    <mat-icon>movie_filter</mat-icon>
+    <p>No se encontraron resultados</p>
+  </div>
+</div>

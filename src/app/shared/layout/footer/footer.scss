@@ -1,0 +1,12 @@
+.footer {
+  padding: 16px;
+  text-align: center;
+  background-color: var(--mat-sys-surface-container);
+  color: var(--mat-sys-on-surface-variant);
+  border-top: 1px solid var(--mat-sys-outline-variant);
+
+  p {
+    margin: 0;
+    font-size: 0.875rem;
+  }
+}

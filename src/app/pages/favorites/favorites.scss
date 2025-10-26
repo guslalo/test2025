@@ -1,0 +1,45 @@
+.favorites-container {
+  padding: 0;
+  max-width: 100%;
+
+  h1 {
+    margin-bottom: 24px;
+  }
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  width: 100%;
+}
+
+.favorite-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 100%;
+
+  img {
+    height: 350px;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.no-favorites {
+  text-align: center;
+  padding: 48px;
+  color: var(--mat-sys-on-surface-variant);
+
+  mat-icon {
+    font-size: 64px;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 16px;
+  }
+
+  p {
+    margin-bottom: 24px;
+  }
+}

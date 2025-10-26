@@ -1,0 +1,56 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Título</mat-label>
+      <input matInput formControlName="title" required>
+      <mat-error *ngIf="form.get('title')?.invalid">
+        {{ getErrorMessage('title') }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Año</mat-label>
+      <input matInput formControlName="year" type="number" placeholder="2024" required>
+      <mat-error *ngIf="form.get('year')?.invalid">
+        {{ getErrorMessage('year') }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Tipo</mat-label>
+      <mat-select formControlName="type" required>
+        <mat-option value="movie">Película</mat-option>
+        <mat-option value="series">Serie</mat-option>
+        <mat-option value="episode">Episodio</mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('type')?.invalid">
+        {{ getErrorMessage('type') }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>URL de imagen</mat-label>
+      <input matInput formControlName="imageUrl" placeholder="https://..." required>
+      <mat-error *ngIf="form.get('imageUrl')?.invalid">
+        {{ getErrorMessage('imageUrl') }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Notas personales</mat-label>
+      <textarea matInput formControlName="userNotes" rows="3"></textarea>
+      <mat-error *ngIf="form.get('userNotes')?.invalid">
+        {{ getErrorMessage('userNotes') }}
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="onSave()" [disabled]="form.invalid">
+    Guardar
+  </button>
+</mat-dialog-actions>

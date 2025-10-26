@@ -1,0 +1,45 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.app-title {
+  cursor: pointer;
+  font-weight: 500;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.reset-button {
+  margin-right: 16px;
+  color: white;
+  border-color: white;
+
+  mat-icon {
+    margin-right: 4px;
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  // En móvil, ocultar el texto y ajustar estilos
+  @media (max-width: 768px) {
+    min-width: 40px;
+    padding: 0;
+    margin-right: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .reset-text {
+      display: none;
+    }
+
+    mat-icon {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+}
