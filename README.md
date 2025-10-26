@@ -24,6 +24,7 @@ Aplicación web desarrollada en Angular para buscar, gestionar y guardar informa
 La API entrega toda la información necesaria: título, año, tipo, imágenes, etc.
 
 **2. Endpoints útiles**
+
 - auto-complete: Para búsquedas rápidas
 - title/get-overview-details: Para detalles completos
 
@@ -37,7 +38,6 @@ Información real que hace la aplicación práctica y realista.
 
 ### Requisitos Cumplidos
 
-- Angular 20 con arquitectura clásica (AppModule, AppComponent)
 - Angular Material para toda la interfaz
 - Diseño responsive (móvil, tablet y escritorio)
 - CRUD completo temporal con localStorage
@@ -47,28 +47,33 @@ Información real que hace la aplicación práctica y realista.
 ### Características
 
 **1. Inicio**
+
 - Búsqueda de películas en tiempo real
 - Grilla adaptable de resultados
 - Sistema de favoritos
 - Carga automática de películas populares al iniciar
 
 **2. Administración**
+
 - Crear: Agregar películas manualmente
 - Leer: Tabla con paginación y filtros
 - Actualizar: Editar información
 - Eliminar: Borrar con confirmación
 
 **3. Detalles**
+
 - Información completa de cada película
 - Notas personalizadas
 - Calificación local
 
 **4. Favoritos**
+
 - Marcar películas favoritas
 - Persistencia en localStorage
 - Vista dedicada de favoritos
 
 **5. Reiniciar Datos**
+
 - Botón para limpiar localStorage
 - Confirmación antes de borrar
 
@@ -82,22 +87,26 @@ Información real que hace la aplicación práctica y realista.
 ### Pasos
 
 **1. Clonar el repositorio**
+
 ```bash
 git clone <url-del-repositorio>
 cd test
 ```
 
 **2. Instalar dependencias**
+
 ```bash
 npm install
 ```
 
 **3. Iniciar la aplicación**
+
 ```bash
 npm start
 ```
 
 **4. Abrir en el navegador**
+
 ```
 http://localhost:4200
 ```
@@ -135,26 +144,31 @@ src/app/
 ### CRUD con localStorage
 
 **Crear**
+
 ```typescript
 addToWorkingData(title: EditableTitle): void
 ```
 
 **Leer**
+
 ```typescript
 getWorkingData(): EditableTitle[]
 ```
 
 **Actualizar**
+
 ```typescript
 updateInWorkingData(id: string, updatedTitle: EditableTitle): void
 ```
 
 **Eliminar**
+
 ```typescript
 deleteFromWorkingData(id: string): void
 ```
 
 Los datos se guardan en localStorage bajo las claves:
+
 - "workingData": Todas las películas
 - "favorites": IDs de favoritos
 
@@ -177,6 +191,7 @@ Los datos se guardan en localStorage bajo las claves:
 La aplicación usa interceptores HTTP para agregar automáticamente los headers de RapidAPI en cada petición.
 
 **Endpoints usados:**
+
 - `/auto-complete?q={búsqueda}` - Buscar películas
 - `/title/get-overview-details?tconst={id}` - Detalles de película
 
@@ -196,4 +211,3 @@ Al iniciar, se cargan automáticamente películas de: Avengers, Batman, Star War
 
 - Proyecto generado con Angular CLI 20.1.5
 - Interfaz completamente responsive
-- Todos los comentarios y mensajes en español
