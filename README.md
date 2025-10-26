@@ -204,8 +204,6 @@ Al iniciar, se cargan automáticamente películas de: Avengers, Batman, Star War
 - Manejo centralizado de errores
 - Componentes reutilizables
 - Código modular
-- Comentarios en español
-- Mensajes de consola en español
 
 ## Notas
 
