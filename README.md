@@ -175,7 +175,7 @@ Los datos se guardan en localStorage bajo las claves:
 ### Validación de Formularios
 
 - **Título**: Obligatorio, máximo 200 caracteres
-- **Año**: Obligatorio, formato 1900-2099
+- **Año**: Obligatorio
 - **Tipo**: Obligatorio (movie, series, episode)
 - **URL Imagen**: Obligatoria, formato URL válido
 - **Notas**: Opcional, mínimo 5 caracteres si se llena
